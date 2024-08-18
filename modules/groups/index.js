@@ -1,7 +1,7 @@
 const { Group } = require('sools-management')
 
 module.exports = {
-  dependencies: ['sools-modeling'],
+  dependencies: ['modeling'],
   async construct({ modeling }) {
     modeling.controller(Group, {
 

@@ -3,8 +3,8 @@ const modules = [
 ]
 
 module.exports = {
-  name: 'sools-management',
-  dependencies: ['sools-modeling', 'mongo'],
+  name: 'management',
+  dependencies: ['modeling', 'mongo'],
   async construct(dependencies, config) {
     for (const module of modules) {
       await module(dependencies, config)

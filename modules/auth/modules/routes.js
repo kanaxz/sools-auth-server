@@ -7,7 +7,7 @@ const { defaultLoad } = require('sools-management/utils')
 module.exports = {
   name: 'auth-routes',
   after: 'sessions',
-  dependencies: ['sessions', 'express', 'mongo', 'sools-modeling'],
+  dependencies: ['sessions', 'express', 'mongo', 'modeling'],
   async construct({ sessions, express, mongo, modeling }) {
     const { collections } = modeling
     const userCollection = mongo.db.collection('users')
