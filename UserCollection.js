@@ -1,5 +1,5 @@
 const MongoCollection = require('sools-mongo/MongoCollection')
-const { defaultLoad } = require('sools-management/utils')
+const { defaultLoad } = require('sools-auth/utils')
 
 module.exports = class StorageCollection extends MongoCollection {
 

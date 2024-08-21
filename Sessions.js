@@ -1,12 +1,19 @@
 const { nanoid } = require('nanoid')
 const moment = require('moment')
-const { User } = require('sools-management')
+const { User } = require('sools-auth')
 
 const TOKEN_KEY = 'sessionToken'
 const TOKEN_AGE = 30
+
+const Express = require('sools-express')
+
 module.exports = {
-  dependencies: ['express', 'mongo'],
-  after: 'express',
+  name: 'sessions',
+  dependencies: [
+    Express,
+    require('sools-mongo'),
+  ],
+  after: Express,
   async construct({ express, mongo }) {
     const collection = mongo.db.collection('sessions')
     const userCollection = mongo.db.collection('users')
@@ -40,6 +47,7 @@ module.exports = {
       delete user.password
       req.user = User.parse(user)
     }
+    
     express.use(async (req, res, next) => {
       try {
         await processCookie(req)

@@ -1,4 +1,4 @@
-const { User } = require('sools-management')
+const { User } = require('sools-auth')
 const UserCollection = require('./UserCollection')
 
 module.exports = ({ modeling, mongo }, config) => {
