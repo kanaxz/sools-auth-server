@@ -14,7 +14,7 @@ module.exports = {
     require('sools-mongo'),
   ],
   after: Express,
-  async construct({ express, mongo }) {
+  async construct({ express, mongo }, config) {
     const collection = mongo.db.collection('sessions')
     const userCollection = mongo.db.collection('users')
 
@@ -47,7 +47,7 @@ module.exports = {
       delete user.password
       req.user = User.parse(user)
     }
-    
+
     express.use(async (req, res, next) => {
       try {
         await processCookie(req)
@@ -82,7 +82,10 @@ module.exports = {
 
       res.cookie(TOKEN_KEY, session._id, {
         maxAge: 1000 * 60 * 60 * 24 * TOKEN_AGE,
-        httpOnly: true
+        httpOnly: true,
+        domain: `.${config.express.host}`,
+        secure: true,
+        sameSite: 'none'
       })
     }
 
