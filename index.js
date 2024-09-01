@@ -4,13 +4,12 @@ const User = require('sools-auth/User')
 module.exports = module.exports = {
   name: 'auth',
   dependencies: [
-    require('sools-core-server'),
     require('sools-mongo'),
     require('sools-modeling-server'),
+    require('sools-express-mongo-session'),
   ],
   modules: [
-    require('./Sessions'),
-    require('./routes')
+    require('./routes'),
   ],
   construct({ modeling, mongo }, config) {
     const providers = []

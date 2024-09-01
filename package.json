@@ -1,6 +1,6 @@
 {
  "name": "sools-auth-server",
- "version": "1.10.0",
+ "version": "1.11.0",
  "description": "",
  "main": "index.js",
  "scripts": {
@@ -13,9 +13,10 @@
   "express": "^4.18.2",
   "moment": "^2.29.4",
   "nanoid": "^3.3.6",
-  "sools-auth": "^1.17.0",
+  "sools-auth": "^1.18.0",
   "sools-core-server": "^1.19.0",
   "sools-express": "^1.19.0",
+  "sools-express-mongo-session": "^1.0.0",
   "sools-modeling-server": "^1.5.0",
   "sools-mongo": "^1.5.0"
  },
